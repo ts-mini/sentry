@@ -29,7 +29,7 @@ class DebugAlertRuleTriggerEmailView(View):
             status=IncidentStatus.CRITICAL,
         )
         alert_rule = AlertRule(
-            id=1, organization=organization, aggregation=1, query="is:unresolved", time_window=60
+            id=1, organization=organization, aggregation=1, query="is:unresolved",
         )
         alert_rule_trigger = AlertRuleTrigger(
             id=5, alert_rule=alert_rule, alert_threshold=100, resolve_threshold=50
