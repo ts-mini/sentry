@@ -31,7 +31,12 @@ const handleDelete = jest.fn();
 describe('Content', () => {
   it('default render - empty', () => {
     const wrapper = mountWithTheme(
-      <Content rules={[]} onEditRule={handleEditRule} onDeleteRule={handleDelete} />
+      <Content
+        rules={[]}
+        onUpdateRule={handleEditRule}
+        onDeleteRule={handleDelete}
+        errors={{}}
+      />
     );
     expect(wrapper.text()).toEqual('You have no data scrubbing rules');
     expect(wrapper).toMatchSnapshot();
@@ -39,7 +44,12 @@ describe('Content', () => {
 
   it('render rules', () => {
     const wrapper = mountWithTheme(
-      <Content rules={rules} onEditRule={handleEditRule} onDeleteRule={handleDelete} />
+      <Content
+        rules={rules}
+        onUpdateRule={handleEditRule}
+        onDeleteRule={handleDelete}
+        errors={{}}
+      />
     );
     expect(wrapper.find('List')).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();
