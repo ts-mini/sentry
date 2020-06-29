@@ -21,6 +21,7 @@ import {
   Errors,
   EventId,
   RequestError,
+  ProjectSlug,
 } from './types';
 import convertRelayPiiConfig from './convertRelayPiiConfig';
 import submitRules from './submitRules';
@@ -29,13 +30,11 @@ import handleError from './handleError';
 const ADVANCED_DATASCRUBBING_LINK =
   'https://docs.sentry.io/data-management/advanced-datascrubbing/';
 
-type ProjectId = Project['id'] | undefined;
-
-type Props<T extends ProjectId> = {
+type Props<T extends ProjectSlug> = {
   endpoint: string;
   organization: Organization;
   onSubmitSuccess?: (data: T extends undefined ? Organization : Project) => void;
-  projectId?: T;
+  projectSlug?: T;
   relayPiiConfig?: string;
   additionalContext?: React.ReactNode;
   disabled?: boolean;
@@ -53,7 +52,7 @@ type State = {
   relayPiiConfig?: string;
 };
 
-class DataScrubbing<T extends ProjectId = undefined> extends React.Component<
+class DataScrubbing<T extends ProjectSlug = undefined> extends React.Component<
   Props<T>,
   State
 > {
@@ -116,7 +115,7 @@ class DataScrubbing<T extends ProjectId = undefined> extends React.Component<
   }
 
   loadSourceSuggestions = async () => {
-    const {organization, projectId} = this.props;
+    const {organization, projectSlug} = this.props;
     const {eventId} = this.state;
 
     if (!eventId.value) {
@@ -140,8 +139,8 @@ class DataScrubbing<T extends ProjectId = undefined> extends React.Component<
 
     try {
       const query: {projectId?: string; eventId: string} = {eventId: eventId.value};
-      if (projectId) {
-        query.projectId = projectId;
+      if (projectSlug) {
+        query.projectId = projectSlug;
       }
       const rawSuggestions = await this.api.requestPromise(
         `/organizations/${organization.slug}/data-scrubbing-selector-suggestions/`,

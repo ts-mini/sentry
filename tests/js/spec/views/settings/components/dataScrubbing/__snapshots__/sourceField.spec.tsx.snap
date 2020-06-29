@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Source default render 1`] = `
+<SourceField
+  isRegExMatchesSelected={false}
+  onChange={[MockFunction]}
+  suggestions={
+    Array [
+      Object {
+        "description": "everywhere",
+        "type": "value",
+        "value": "**",
+      },
+      Object {
+        "description": "attributes named \\"password\\"",
+        "type": "value",
+        "value": "password",
+      },
+      Object {
+        "description": "the exception value",
+        "type": "value",
+        "value": "$error.value",
+      },
+      Object {
+        "description": "the log message",
+        "type": "value",
+        "value": "$message",
+      },
+      Object {
+        "description": "the key \\"MyValue\\" in \\"Additional Data\\"",
+        "type": "value",
+        "value": "extra.MyValue",
+      },
+      Object {
+        "description": "everything in \\"Additional Data\\"",
+        "type": "value",
+        "value": "extra.**",
+      },
+      Object {
+        "description": "the X-Custom-Token HTTP header",
+        "type": "value",
+        "value": "$http.headers.x-custom-token",
+      },
+      Object {
+        "description": "the user IP address",
+        "type": "value",
+        "value": "$user.ip_address",
+      },
+      Object {
+        "description": "the local variable \\"foo\\"",
+        "type": "value",
+        "value": "$frame.vars.foo",
+      },
+      Object {
+        "description": "the timezone in the device context",
+        "type": "value",
+        "value": "contexts.device.timezone",
+      },
+      Object {
+        "description": "the tag \\"server_name\\"",
+        "type": "value",
+        "value": "tags.server_name",
+      },
+    ]
+  }
+  value="$string"
+>
+  <Wrapper
+    hideCaret={false}
+  >
+    <div
+      className="css-ar7124-Wrapper e1v8r40u0"
+    >
+      <StyledInput
+        autoComplete="off"
+        name="source"
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Enter a custom attribute, variable or header name"
+        type="text"
+        value="$string"
+      >
+        <input
+          autoComplete="off"
+          className="css-z2xmkr-Input-StyledInput e1v8r40u1"
+          name="source"
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Enter a custom attribute, variable or header name"
+          type="text"
+          value="$string"
+        />
+      </StyledInput>
+    </div>
+  </Wrapper>
+</SourceField>
+`;

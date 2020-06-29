@@ -1,0 +1,1623 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data Scrubbing Organization level default render 1`] = `
+<DataScrubbing
+  additionalContext="These rules can be configured for each project."
+  disabled={false}
+  endpoint="organization/sentry/"
+  onSubmitSuccess={[MockFunction]}
+  organization={
+    Object {
+      "access": Array [
+        "org:read",
+        "org:write",
+        "org:admin",
+        "org:integrations",
+        "project:read",
+        "project:write",
+        "project:admin",
+        "team:read",
+        "team:write",
+        "team:admin",
+      ],
+      "experiments": Object {},
+      "features": Array [],
+      "id": "123",
+      "name": "Organization Name",
+      "onboardingTasks": Array [],
+      "projects": Array [],
+      "scrapeJavaScript": true,
+      "slug": "org-slug",
+      "status": Object {
+        "id": "active",
+        "name": "active",
+      },
+      "teams": Array [],
+    }
+  }
+  relayPiiConfig="{\\"rules\\":{\\"0\\":{\\"type\\":\\"password\\",\\"redaction\\":{\\"method\\":\\"replace\\",\\"text\\":\\"Scrubbed\\"}},\\"1\\":{\\"type\\":\\"creditcard\\",\\"redaction\\":{\\"method\\":\\"mask\\"}}},\\"applications\\":{\\"password\\":[\\"0\\"],\\"$message\\":[\\"1\\"]}}"
+>
+  <Panel>
+    <Component
+      className="css-15hwgrz-Panel e119nu470"
+    >
+      <div
+        className="css-15hwgrz-Panel e119nu470"
+      >
+        <PanelHeader>
+          <div
+            className="css-1es1m70-PanelHeader en8g1d30"
+          >
+            <div>
+              Advanced Data Scrubbing
+            </div>
+          </div>
+        </PanelHeader>
+        <PanelAlert
+          type="info"
+        >
+          <Component
+            className="css-148v945-PanelAlert e1cszazt0"
+            type="info"
+          >
+            <Alert
+              className="css-148v945-PanelAlert e1cszazt0"
+              icon="icon-circle-info"
+              iconSize="20px"
+              system={true}
+              type="info"
+            >
+              <Component
+                className="e1cszazt0 css-1f8hj03-Alert-PanelAlert ejthpj82"
+                icon="icon-circle-info"
+                iconSize="20px"
+                system={true}
+                type="info"
+              >
+                <div
+                  className="ref-info e1cszazt0 css-1f8hj03-Alert-PanelAlert ejthpj82"
+                >
+                  <IconWrapper>
+                    <span
+                      className="css-1vsw7fz-IconWrapper ejthpj80"
+                    >
+                      <InlineSvg
+                        size="20px"
+                        src="icon-circle-info"
+                      >
+                        <ForwardRef
+                          className="css-tbsmsq-InlineSvg enyz4ql0"
+                          size="20px"
+                          src="icon-circle-info"
+                        >
+                          <svg
+                            className="css-tbsmsq-InlineSvg enyz4ql0"
+                            height="20px"
+                            viewBox={Object {}}
+                            width="20px"
+                          >
+                            <use
+                              href="#test"
+                              xlinkHref="#test"
+                            />
+                          </svg>
+                        </ForwardRef>
+                      </InlineSvg>
+                    </span>
+                  </IconWrapper>
+                  <StyledTextBlock>
+                    <span
+                      className="css-6y2q80-StyledTextBlock ejthpj81"
+                    >
+                      These rules can be configured for each project.
+                       
+                      The new rules will only apply to upcoming events. 
+                       
+                      <span
+                        key="4"
+                      >
+                        <span
+                          key="0"
+                        >
+                          For more details, see 
+                        </span>
+                        <ForwardRef(ExternalLink)
+                          href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                          key="1"
+                        >
+                          <a
+                            href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                          >
+                            full documentation on data scrubbing
+                          </a>
+                        </ForwardRef(ExternalLink)>
+                        <span
+                          key="2"
+                        >
+                          .
+                        </span>
+                      </span>
+                    </span>
+                  </StyledTextBlock>
+                </div>
+              </Component>
+            </Alert>
+          </Component>
+        </PanelAlert>
+        <PanelBody
+          flexible={false}
+          withPadding={false}
+        >
+          <FlexBox
+            withPadding={false}
+          >
+            <div
+              className="css-1nto0rx-FlexBox e1vnwt6f0"
+            >
+              <Content
+                disabled={false}
+                errors={Object {}}
+                eventId={
+                  Object {
+                    "status": undefined,
+                    "value": "",
+                  }
+                }
+                onDeleteRule={[Function]}
+                onUpdateEventId={[Function]}
+                onUpdateRule={[Function]}
+                rules={
+                  Array [
+                    Object {
+                      "id": 0,
+                      "method": "replace",
+                      "placeholder": "Scrubbed",
+                      "source": "password",
+                      "type": "password",
+                    },
+                    Object {
+                      "id": 1,
+                      "method": "mask",
+                      "source": "$message",
+                      "type": "creditcard",
+                    },
+                  ]
+                }
+                sourceSuggestions={
+                  Array [
+                    Object {
+                      "description": "everywhere",
+                      "type": "value",
+                      "value": "**",
+                    },
+                    Object {
+                      "description": "attributes named \\"password\\"",
+                      "type": "value",
+                      "value": "password",
+                    },
+                    Object {
+                      "description": "the exception value",
+                      "type": "value",
+                      "value": "$error.value",
+                    },
+                    Object {
+                      "description": "the log message",
+                      "type": "value",
+                      "value": "$message",
+                    },
+                    Object {
+                      "description": "the key \\"MyValue\\" in \\"Additional Data\\"",
+                      "type": "value",
+                      "value": "extra.MyValue",
+                    },
+                    Object {
+                      "description": "everything in \\"Additional Data\\"",
+                      "type": "value",
+                      "value": "extra.**",
+                    },
+                    Object {
+                      "description": "the X-Custom-Token HTTP header",
+                      "type": "value",
+                      "value": "$http.headers.x-custom-token",
+                    },
+                    Object {
+                      "description": "the user IP address",
+                      "type": "value",
+                      "value": "$user.ip_address",
+                    },
+                    Object {
+                      "description": "the local variable \\"foo\\"",
+                      "type": "value",
+                      "value": "$frame.vars.foo",
+                    },
+                    Object {
+                      "description": "the timezone in the device context",
+                      "type": "value",
+                      "value": "contexts.device.timezone",
+                    },
+                    Object {
+                      "description": "the tag \\"server_name\\"",
+                      "type": "value",
+                      "value": "tags.server_name",
+                    },
+                  ]
+                }
+              >
+                <ForwardRef(RulesList)
+                  disabled={false}
+                  onDeleteRule={[Function]}
+                  onShowEditRuleModal={[Function]}
+                  rules={
+                    Array [
+                      Object {
+                        "id": 0,
+                        "method": "replace",
+                        "placeholder": "Scrubbed",
+                        "source": "password",
+                        "type": "password",
+                      },
+                      Object {
+                        "id": 1,
+                        "method": "mask",
+                        "source": "$message",
+                        "type": "creditcard",
+                      },
+                    ]
+                  }
+                >
+                  <List
+                    isDisabled={false}
+                  >
+                    <ul
+                      className="css-1pzd3i1-List e1itmygm0"
+                    >
+                      <ListItem
+                        key="0"
+                      >
+                        <li
+                          className="css-1kjgas1-ListItem e1itmygm1"
+                        >
+                          <TextOverflow>
+                            <div
+                              className="css-bsbdc4-TextOverflow e1kpcezi0"
+                            >
+                              [Replace] [Password fields]  with [Scrubbed] from [password]
+                            </div>
+                          </TextOverflow>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconEdit) />}
+                            label="Edit Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconEdit) />}
+                              label="Edit Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Edit Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Edit Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Edit Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <IconEdit>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M1.36,15.91a1.34,1.34,0,0,1-.94-.38,1.32,1.32,0,0,1-.35-1.28L1.39,9a.94.94,0,0,1,.2-.35l8.06-8A1.71,1.71,0,0,1,12,.56l3.42,3.25A1.68,1.68,0,0,1,16,5a1.64,1.64,0,0,1-.48,1.2l-8.06,8a.79.79,0,0,1-.34.2L1.71,15.87A1.39,1.39,0,0,1,1.36,15.91Zm.16-1.3ZM2.8,9.53,1.59,14.35,6.51,13l7.91-7.89A.14.14,0,0,0,14.47,5a.17.17,0,0,0-.05-.12L11,1.64a.23.23,0,0,0-.3,0h0Zm7.38-8.41h0Z"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-0.91 9.12) rotate(-45.91)"
+                                                    width="1.5"
+                                                    x="9.56"
+                                                    y="2.34"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-6.87 6.8) rotate(-46.34)"
+                                                    width="1.5"
+                                                    x="3.76"
+                                                    y="8.12"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </IconEdit>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconDelete) />}
+                            label="Delete Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconDelete) />}
+                              label="Delete Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Delete Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Delete Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Delete Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <ForwardRef(IconDelete)>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M14.71,3.94H1.29a.75.75,0,0,1,0-1.5H14.71a.75.75,0,0,1,0,1.5Z"
+                                                  />
+                                                  <path
+                                                    d="M12.69,15.94H3.31a1.75,1.75,0,0,1-1.75-1.75v-11h1.5v11a.25.25,0,0,0,.25.25h9.38a.25.25,0,0,0,.25-.25v-11h1.5v11A1.75,1.75,0,0,1,12.69,15.94Z"
+                                                  />
+                                                  <path
+                                                    d="M5,13a.74.74,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,5,13Z"
+                                                  />
+                                                  <path
+                                                    d="M8,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,8,13Z"
+                                                  />
+                                                  <path
+                                                    d="M11.05,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.74.74,0,0,1,11.05,13Z"
+                                                  />
+                                                  <path
+                                                    d="M10.51,3.47l-.81-2H6.3l-.81,2L4.1,2.91,5,.77A1.26,1.26,0,0,1,6.13,0H9.87A1.26,1.26,0,0,1,11,.77l.87,2.14Z"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </ForwardRef(IconDelete)>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        key="1"
+                      >
+                        <li
+                          className="css-1kjgas1-ListItem e1itmygm1"
+                        >
+                          <TextOverflow>
+                            <div
+                              className="css-bsbdc4-TextOverflow e1kpcezi0"
+                            >
+                              [Mask] [Credit card numbers] from [$message]
+                            </div>
+                          </TextOverflow>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconEdit) />}
+                            label="Edit Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconEdit) />}
+                              label="Edit Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Edit Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Edit Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Edit Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <IconEdit>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M1.36,15.91a1.34,1.34,0,0,1-.94-.38,1.32,1.32,0,0,1-.35-1.28L1.39,9a.94.94,0,0,1,.2-.35l8.06-8A1.71,1.71,0,0,1,12,.56l3.42,3.25A1.68,1.68,0,0,1,16,5a1.64,1.64,0,0,1-.48,1.2l-8.06,8a.79.79,0,0,1-.34.2L1.71,15.87A1.39,1.39,0,0,1,1.36,15.91Zm.16-1.3ZM2.8,9.53,1.59,14.35,6.51,13l7.91-7.89A.14.14,0,0,0,14.47,5a.17.17,0,0,0-.05-.12L11,1.64a.23.23,0,0,0-.3,0h0Zm7.38-8.41h0Z"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-0.91 9.12) rotate(-45.91)"
+                                                    width="1.5"
+                                                    x="9.56"
+                                                    y="2.34"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-6.87 6.8) rotate(-46.34)"
+                                                    width="1.5"
+                                                    x="3.76"
+                                                    y="8.12"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </IconEdit>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconDelete) />}
+                            label="Delete Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconDelete) />}
+                              label="Delete Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Delete Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Delete Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Delete Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <ForwardRef(IconDelete)>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M14.71,3.94H1.29a.75.75,0,0,1,0-1.5H14.71a.75.75,0,0,1,0,1.5Z"
+                                                  />
+                                                  <path
+                                                    d="M12.69,15.94H3.31a1.75,1.75,0,0,1-1.75-1.75v-11h1.5v11a.25.25,0,0,0,.25.25h9.38a.25.25,0,0,0,.25-.25v-11h1.5v11A1.75,1.75,0,0,1,12.69,15.94Z"
+                                                  />
+                                                  <path
+                                                    d="M5,13a.74.74,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,5,13Z"
+                                                  />
+                                                  <path
+                                                    d="M8,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,8,13Z"
+                                                  />
+                                                  <path
+                                                    d="M11.05,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.74.74,0,0,1,11.05,13Z"
+                                                  />
+                                                  <path
+                                                    d="M10.51,3.47l-.81-2H6.3l-.81,2L4.1,2.91,5,.77A1.26,1.26,0,0,1,6.13,0H9.87A1.26,1.26,0,0,1,11,.77l.87,2.14Z"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </ForwardRef(IconDelete)>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                        </li>
+                      </ListItem>
+                    </ul>
+                  </List>
+                </ForwardRef(RulesList)>
+              </Content>
+              <PanelAction>
+                <div
+                  className="css-qdmx3k-PanelAction e1kw79fb0"
+                >
+                  <forwardRef<Button>
+                    href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                    target="_blank"
+                  >
+                    <Button
+                      align="center"
+                      disabled={false}
+                      forwardRef={null}
+                      href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                      target="_blank"
+                    >
+                      <StyledButton
+                        aria-disabled={false}
+                        aria-label="Read the docs"
+                        disabled={false}
+                        forwardRef={null}
+                        href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                        onClick={[Function]}
+                        role="button"
+                        target="_blank"
+                      >
+                        <Component
+                          aria-disabled={false}
+                          aria-label="Read the docs"
+                          className="css-1c2phb1-StyledButton edwq9my0"
+                          forwardRef={null}
+                          href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                          onClick={[Function]}
+                          role="button"
+                          target="_blank"
+                        >
+                          <a
+                            aria-disabled={false}
+                            aria-label="Read the docs"
+                            className="css-1c2phb1-StyledButton edwq9my0"
+                            href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                            onClick={[Function]}
+                            role="button"
+                            target="_blank"
+                          >
+                            <ButtonLabel
+                              align="center"
+                            >
+                              <span
+                                className="css-zmpclt-ButtonLabel edwq9my1"
+                              >
+                                Read the docs
+                              </span>
+                            </ButtonLabel>
+                          </a>
+                        </Component>
+                      </StyledButton>
+                    </Button>
+                  </forwardRef<Button>>
+                  <forwardRef<Button>
+                    disabled={false}
+                    onClick={[Function]}
+                    priority="primary"
+                  >
+                    <Button
+                      align="center"
+                      disabled={false}
+                      forwardRef={null}
+                      onClick={[Function]}
+                      priority="primary"
+                    >
+                      <StyledButton
+                        aria-disabled={false}
+                        aria-label="Add Rule"
+                        disabled={false}
+                        forwardRef={null}
+                        onClick={[Function]}
+                        priority="primary"
+                        role="button"
+                      >
+                        <Component
+                          aria-disabled={false}
+                          aria-label="Add Rule"
+                          className="css-1e05jtd-StyledButton edwq9my0"
+                          forwardRef={null}
+                          onClick={[Function]}
+                          role="button"
+                        >
+                          <button
+                            aria-disabled={false}
+                            aria-label="Add Rule"
+                            className="css-1e05jtd-StyledButton edwq9my0"
+                            onClick={[Function]}
+                            role="button"
+                          >
+                            <ButtonLabel
+                              align="center"
+                              priority="primary"
+                            >
+                              <span
+                                className="css-zmpclt-ButtonLabel edwq9my1"
+                              >
+                                Add Rule
+                              </span>
+                            </ButtonLabel>
+                          </button>
+                        </Component>
+                      </StyledButton>
+                    </Button>
+                  </forwardRef<Button>>
+                </div>
+              </PanelAction>
+            </div>
+          </FlexBox>
+        </PanelBody>
+      </div>
+    </Component>
+  </Panel>
+</DataScrubbing>
+`;
+
+exports[`Data Scrubbing Project level default render 1`] = `
+<DataScrubbing
+  additionalContext="These rules can be configured for each project."
+  disabled={false}
+  endpoint="/projects/sentry/foo/"
+  onSubmitSuccess={[MockFunction]}
+  organization={
+    Object {
+      "access": Array [
+        "org:read",
+        "org:write",
+        "org:admin",
+        "org:integrations",
+        "project:read",
+        "project:write",
+        "project:admin",
+        "team:read",
+        "team:write",
+        "team:admin",
+      ],
+      "experiments": Object {},
+      "features": Array [],
+      "id": "123",
+      "name": "Organization Name",
+      "onboardingTasks": Array [],
+      "projects": Array [],
+      "scrapeJavaScript": true,
+      "slug": "org-slug",
+      "status": Object {
+        "id": "active",
+        "name": "active",
+      },
+      "teams": Array [],
+    }
+  }
+  projectSlug="foo"
+  relayPiiConfig="{\\"rules\\":{\\"0\\":{\\"type\\":\\"password\\",\\"redaction\\":{\\"method\\":\\"replace\\",\\"text\\":\\"Scrubbed\\"}},\\"1\\":{\\"type\\":\\"creditcard\\",\\"redaction\\":{\\"method\\":\\"mask\\"}}},\\"applications\\":{\\"password\\":[\\"0\\"],\\"$message\\":[\\"1\\"]}}"
+>
+  <Panel>
+    <Component
+      className="css-15hwgrz-Panel e119nu470"
+    >
+      <div
+        className="css-15hwgrz-Panel e119nu470"
+      >
+        <PanelHeader>
+          <div
+            className="css-1es1m70-PanelHeader en8g1d30"
+          >
+            <div>
+              Advanced Data Scrubbing
+            </div>
+          </div>
+        </PanelHeader>
+        <PanelAlert
+          type="info"
+        >
+          <Component
+            className="css-148v945-PanelAlert e1cszazt0"
+            type="info"
+          >
+            <Alert
+              className="css-148v945-PanelAlert e1cszazt0"
+              icon="icon-circle-info"
+              iconSize="20px"
+              system={true}
+              type="info"
+            >
+              <Component
+                className="e1cszazt0 css-1f8hj03-Alert-PanelAlert ejthpj82"
+                icon="icon-circle-info"
+                iconSize="20px"
+                system={true}
+                type="info"
+              >
+                <div
+                  className="ref-info e1cszazt0 css-1f8hj03-Alert-PanelAlert ejthpj82"
+                >
+                  <IconWrapper>
+                    <span
+                      className="css-1vsw7fz-IconWrapper ejthpj80"
+                    >
+                      <InlineSvg
+                        size="20px"
+                        src="icon-circle-info"
+                      >
+                        <ForwardRef
+                          className="css-tbsmsq-InlineSvg enyz4ql0"
+                          size="20px"
+                          src="icon-circle-info"
+                        >
+                          <svg
+                            className="css-tbsmsq-InlineSvg enyz4ql0"
+                            height="20px"
+                            viewBox={Object {}}
+                            width="20px"
+                          >
+                            <use
+                              href="#test"
+                              xlinkHref="#test"
+                            />
+                          </svg>
+                        </ForwardRef>
+                      </InlineSvg>
+                    </span>
+                  </IconWrapper>
+                  <StyledTextBlock>
+                    <span
+                      className="css-6y2q80-StyledTextBlock ejthpj81"
+                    >
+                      These rules can be configured for each project.
+                       
+                      The new rules will only apply to upcoming events. 
+                       
+                      <span
+                        key="4"
+                      >
+                        <span
+                          key="0"
+                        >
+                          For more details, see 
+                        </span>
+                        <ForwardRef(ExternalLink)
+                          href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                          key="1"
+                        >
+                          <a
+                            href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                          >
+                            full documentation on data scrubbing
+                          </a>
+                        </ForwardRef(ExternalLink)>
+                        <span
+                          key="2"
+                        >
+                          .
+                        </span>
+                      </span>
+                    </span>
+                  </StyledTextBlock>
+                </div>
+              </Component>
+            </Alert>
+          </Component>
+        </PanelAlert>
+        <PanelBody
+          flexible={false}
+          withPadding={false}
+        >
+          <FlexBox
+            withPadding={false}
+          >
+            <div
+              className="css-1nto0rx-FlexBox e1vnwt6f0"
+            >
+              <OrganizationRules
+                rules={Array []}
+              >
+                <Wrapper>
+                  <div
+                    className="css-100uoed-Wrapper ei0za3e2"
+                  >
+                    There are no data scrubbing rules at the organization level
+                  </div>
+                </Wrapper>
+              </OrganizationRules>
+              <Content
+                disabled={false}
+                errors={Object {}}
+                eventId={
+                  Object {
+                    "status": undefined,
+                    "value": "",
+                  }
+                }
+                onDeleteRule={[Function]}
+                onUpdateEventId={[Function]}
+                onUpdateRule={[Function]}
+                rules={
+                  Array [
+                    Object {
+                      "id": 0,
+                      "method": "replace",
+                      "placeholder": "Scrubbed",
+                      "source": "password",
+                      "type": "password",
+                    },
+                    Object {
+                      "id": 1,
+                      "method": "mask",
+                      "source": "$message",
+                      "type": "creditcard",
+                    },
+                  ]
+                }
+                sourceSuggestions={
+                  Array [
+                    Object {
+                      "description": "everywhere",
+                      "type": "value",
+                      "value": "**",
+                    },
+                    Object {
+                      "description": "attributes named \\"password\\"",
+                      "type": "value",
+                      "value": "password",
+                    },
+                    Object {
+                      "description": "the exception value",
+                      "type": "value",
+                      "value": "$error.value",
+                    },
+                    Object {
+                      "description": "the log message",
+                      "type": "value",
+                      "value": "$message",
+                    },
+                    Object {
+                      "description": "the key \\"MyValue\\" in \\"Additional Data\\"",
+                      "type": "value",
+                      "value": "extra.MyValue",
+                    },
+                    Object {
+                      "description": "everything in \\"Additional Data\\"",
+                      "type": "value",
+                      "value": "extra.**",
+                    },
+                    Object {
+                      "description": "the X-Custom-Token HTTP header",
+                      "type": "value",
+                      "value": "$http.headers.x-custom-token",
+                    },
+                    Object {
+                      "description": "the user IP address",
+                      "type": "value",
+                      "value": "$user.ip_address",
+                    },
+                    Object {
+                      "description": "the local variable \\"foo\\"",
+                      "type": "value",
+                      "value": "$frame.vars.foo",
+                    },
+                    Object {
+                      "description": "the timezone in the device context",
+                      "type": "value",
+                      "value": "contexts.device.timezone",
+                    },
+                    Object {
+                      "description": "the tag \\"server_name\\"",
+                      "type": "value",
+                      "value": "tags.server_name",
+                    },
+                  ]
+                }
+              >
+                <ForwardRef(RulesList)
+                  disabled={false}
+                  onDeleteRule={[Function]}
+                  onShowEditRuleModal={[Function]}
+                  rules={
+                    Array [
+                      Object {
+                        "id": 0,
+                        "method": "replace",
+                        "placeholder": "Scrubbed",
+                        "source": "password",
+                        "type": "password",
+                      },
+                      Object {
+                        "id": 1,
+                        "method": "mask",
+                        "source": "$message",
+                        "type": "creditcard",
+                      },
+                    ]
+                  }
+                >
+                  <List
+                    isDisabled={false}
+                  >
+                    <ul
+                      className="css-1pzd3i1-List e1itmygm0"
+                    >
+                      <ListItem
+                        key="0"
+                      >
+                        <li
+                          className="css-1kjgas1-ListItem e1itmygm1"
+                        >
+                          <TextOverflow>
+                            <div
+                              className="css-bsbdc4-TextOverflow e1kpcezi0"
+                            >
+                              [Replace] [Password fields]  with [Scrubbed] from [password]
+                            </div>
+                          </TextOverflow>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconEdit) />}
+                            label="Edit Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconEdit) />}
+                              label="Edit Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Edit Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Edit Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Edit Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <IconEdit>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M1.36,15.91a1.34,1.34,0,0,1-.94-.38,1.32,1.32,0,0,1-.35-1.28L1.39,9a.94.94,0,0,1,.2-.35l8.06-8A1.71,1.71,0,0,1,12,.56l3.42,3.25A1.68,1.68,0,0,1,16,5a1.64,1.64,0,0,1-.48,1.2l-8.06,8a.79.79,0,0,1-.34.2L1.71,15.87A1.39,1.39,0,0,1,1.36,15.91Zm.16-1.3ZM2.8,9.53,1.59,14.35,6.51,13l7.91-7.89A.14.14,0,0,0,14.47,5a.17.17,0,0,0-.05-.12L11,1.64a.23.23,0,0,0-.3,0h0Zm7.38-8.41h0Z"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-0.91 9.12) rotate(-45.91)"
+                                                    width="1.5"
+                                                    x="9.56"
+                                                    y="2.34"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-6.87 6.8) rotate(-46.34)"
+                                                    width="1.5"
+                                                    x="3.76"
+                                                    y="8.12"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </IconEdit>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconDelete) />}
+                            label="Delete Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconDelete) />}
+                              label="Delete Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Delete Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Delete Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Delete Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <ForwardRef(IconDelete)>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M14.71,3.94H1.29a.75.75,0,0,1,0-1.5H14.71a.75.75,0,0,1,0,1.5Z"
+                                                  />
+                                                  <path
+                                                    d="M12.69,15.94H3.31a1.75,1.75,0,0,1-1.75-1.75v-11h1.5v11a.25.25,0,0,0,.25.25h9.38a.25.25,0,0,0,.25-.25v-11h1.5v11A1.75,1.75,0,0,1,12.69,15.94Z"
+                                                  />
+                                                  <path
+                                                    d="M5,13a.74.74,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,5,13Z"
+                                                  />
+                                                  <path
+                                                    d="M8,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,8,13Z"
+                                                  />
+                                                  <path
+                                                    d="M11.05,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.74.74,0,0,1,11.05,13Z"
+                                                  />
+                                                  <path
+                                                    d="M10.51,3.47l-.81-2H6.3l-.81,2L4.1,2.91,5,.77A1.26,1.26,0,0,1,6.13,0H9.87A1.26,1.26,0,0,1,11,.77l.87,2.14Z"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </ForwardRef(IconDelete)>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        key="1"
+                      >
+                        <li
+                          className="css-1kjgas1-ListItem e1itmygm1"
+                        >
+                          <TextOverflow>
+                            <div
+                              className="css-bsbdc4-TextOverflow e1kpcezi0"
+                            >
+                              [Mask] [Credit card numbers] from [$message]
+                            </div>
+                          </TextOverflow>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconEdit) />}
+                            label="Edit Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconEdit) />}
+                              label="Edit Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Edit Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Edit Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Edit Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <IconEdit>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M1.36,15.91a1.34,1.34,0,0,1-.94-.38,1.32,1.32,0,0,1-.35-1.28L1.39,9a.94.94,0,0,1,.2-.35l8.06-8A1.71,1.71,0,0,1,12,.56l3.42,3.25A1.68,1.68,0,0,1,16,5a1.64,1.64,0,0,1-.48,1.2l-8.06,8a.79.79,0,0,1-.34.2L1.71,15.87A1.39,1.39,0,0,1,1.36,15.91Zm.16-1.3ZM2.8,9.53,1.59,14.35,6.51,13l7.91-7.89A.14.14,0,0,0,14.47,5a.17.17,0,0,0-.05-.12L11,1.64a.23.23,0,0,0-.3,0h0Zm7.38-8.41h0Z"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-0.91 9.12) rotate(-45.91)"
+                                                    width="1.5"
+                                                    x="9.56"
+                                                    y="2.34"
+                                                  />
+                                                  <rect
+                                                    height="6.6"
+                                                    transform="translate(-6.87 6.8) rotate(-46.34)"
+                                                    width="1.5"
+                                                    x="3.76"
+                                                    y="8.12"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </IconEdit>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                          <forwardRef<Button>
+                            disabled={false}
+                            icon={<ForwardRef(IconDelete) />}
+                            label="Delete Rule"
+                            onClick={[Function]}
+                            size="small"
+                          >
+                            <Button
+                              align="center"
+                              disabled={false}
+                              forwardRef={null}
+                              icon={<ForwardRef(IconDelete) />}
+                              label="Delete Rule"
+                              onClick={[Function]}
+                              size="small"
+                            >
+                              <StyledButton
+                                aria-disabled={false}
+                                aria-label="Delete Rule"
+                                disabled={false}
+                                forwardRef={null}
+                                onClick={[Function]}
+                                role="button"
+                                size="small"
+                              >
+                                <Component
+                                  aria-disabled={false}
+                                  aria-label="Delete Rule"
+                                  className="css-12ogwys-StyledButton edwq9my0"
+                                  forwardRef={null}
+                                  onClick={[Function]}
+                                  role="button"
+                                  size="small"
+                                >
+                                  <button
+                                    aria-disabled={false}
+                                    aria-label="Delete Rule"
+                                    className="css-12ogwys-StyledButton edwq9my0"
+                                    onClick={[Function]}
+                                    role="button"
+                                    size="small"
+                                  >
+                                    <ButtonLabel
+                                      align="center"
+                                      size="small"
+                                    >
+                                      <span
+                                        className="css-n7mdnv-ButtonLabel edwq9my1"
+                                      >
+                                        <Icon
+                                          hasChildren={false}
+                                          size="small"
+                                        >
+                                          <span
+                                            className="css-dm7gfi-Icon edwq9my2"
+                                            size="small"
+                                          >
+                                            <ForwardRef(IconDelete)>
+                                              <ForwardRef(SvgIcon)>
+                                                <svg
+                                                  fill="currentColor"
+                                                  height="16px"
+                                                  viewBox="0 0 16 16"
+                                                  width="16px"
+                                                >
+                                                  <path
+                                                    d="M14.71,3.94H1.29a.75.75,0,0,1,0-1.5H14.71a.75.75,0,0,1,0,1.5Z"
+                                                  />
+                                                  <path
+                                                    d="M12.69,15.94H3.31a1.75,1.75,0,0,1-1.75-1.75v-11h1.5v11a.25.25,0,0,0,.25.25h9.38a.25.25,0,0,0,.25-.25v-11h1.5v11A1.75,1.75,0,0,1,12.69,15.94Z"
+                                                  />
+                                                  <path
+                                                    d="M5,13a.74.74,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,5,13Z"
+                                                  />
+                                                  <path
+                                                    d="M8,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.75.75,0,0,1,8,13Z"
+                                                  />
+                                                  <path
+                                                    d="M11.05,13a.75.75,0,0,1-.75-.75V6.14a.75.75,0,0,1,1.5,0v6.1A.74.74,0,0,1,11.05,13Z"
+                                                  />
+                                                  <path
+                                                    d="M10.51,3.47l-.81-2H6.3l-.81,2L4.1,2.91,5,.77A1.26,1.26,0,0,1,6.13,0H9.87A1.26,1.26,0,0,1,11,.77l.87,2.14Z"
+                                                  />
+                                                </svg>
+                                              </ForwardRef(SvgIcon)>
+                                            </ForwardRef(IconDelete)>
+                                          </span>
+                                        </Icon>
+                                      </span>
+                                    </ButtonLabel>
+                                  </button>
+                                </Component>
+                              </StyledButton>
+                            </Button>
+                          </forwardRef<Button>>
+                        </li>
+                      </ListItem>
+                    </ul>
+                  </List>
+                </ForwardRef(RulesList)>
+              </Content>
+              <PanelAction>
+                <div
+                  className="css-qdmx3k-PanelAction e1kw79fb0"
+                >
+                  <forwardRef<Button>
+                    href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                    target="_blank"
+                  >
+                    <Button
+                      align="center"
+                      disabled={false}
+                      forwardRef={null}
+                      href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                      target="_blank"
+                    >
+                      <StyledButton
+                        aria-disabled={false}
+                        aria-label="Read the docs"
+                        disabled={false}
+                        forwardRef={null}
+                        href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                        onClick={[Function]}
+                        role="button"
+                        target="_blank"
+                      >
+                        <Component
+                          aria-disabled={false}
+                          aria-label="Read the docs"
+                          className="css-1c2phb1-StyledButton edwq9my0"
+                          forwardRef={null}
+                          href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                          onClick={[Function]}
+                          role="button"
+                          target="_blank"
+                        >
+                          <a
+                            aria-disabled={false}
+                            aria-label="Read the docs"
+                            className="css-1c2phb1-StyledButton edwq9my0"
+                            href="https://docs.sentry.io/data-management/advanced-datascrubbing/"
+                            onClick={[Function]}
+                            role="button"
+                            target="_blank"
+                          >
+                            <ButtonLabel
+                              align="center"
+                            >
+                              <span
+                                className="css-zmpclt-ButtonLabel edwq9my1"
+                              >
+                                Read the docs
+                              </span>
+                            </ButtonLabel>
+                          </a>
+                        </Component>
+                      </StyledButton>
+                    </Button>
+                  </forwardRef<Button>>
+                  <forwardRef<Button>
+                    disabled={false}
+                    onClick={[Function]}
+                    priority="primary"
+                  >
+                    <Button
+                      align="center"
+                      disabled={false}
+                      forwardRef={null}
+                      onClick={[Function]}
+                      priority="primary"
+                    >
+                      <StyledButton
+                        aria-disabled={false}
+                        aria-label="Add Rule"
+                        disabled={false}
+                        forwardRef={null}
+                        onClick={[Function]}
+                        priority="primary"
+                        role="button"
+                      >
+                        <Component
+                          aria-disabled={false}
+                          aria-label="Add Rule"
+                          className="css-1e05jtd-StyledButton edwq9my0"
+                          forwardRef={null}
+                          onClick={[Function]}
+                          role="button"
+                        >
+                          <button
+                            aria-disabled={false}
+                            aria-label="Add Rule"
+                            className="css-1e05jtd-StyledButton edwq9my0"
+                            onClick={[Function]}
+                            role="button"
+                          >
+                            <ButtonLabel
+                              align="center"
+                              priority="primary"
+                            >
+                              <span
+                                className="css-zmpclt-ButtonLabel edwq9my1"
+                              >
+                                Add Rule
+                              </span>
+                            </ButtonLabel>
+                          </button>
+                        </Component>
+                      </StyledButton>
+                    </Button>
+                  </forwardRef<Button>>
+                </div>
+              </PanelAction>
+            </div>
+          </FlexBox>
+        </PanelBody>
+      </div>
+    </Component>
+  </Panel>
+</DataScrubbing>
+`;

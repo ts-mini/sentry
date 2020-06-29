@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rules default render 1`] = `
+<ForwardRef(RulesList)
+  rules={
+    Array [
+      Object {
+        "id": 0,
+        "method": "mask",
+        "source": "$message",
+        "type": "creditcard",
+      },
+      Object {
+        "id": 1,
+        "method": "replace",
+        "placeholder": "Scrubbed",
+        "source": "password",
+        "type": "password",
+      },
+    ]
+  }
+>
+  <List>
+    <ul
+      className="css-1pzd3i1-List e1itmygm0"
+    >
+      <ListItem
+        key="0"
+      >
+        <li
+          className="css-1kjgas1-ListItem e1itmygm1"
+        >
+          <TextOverflow>
+            <div
+              className="css-bsbdc4-TextOverflow e1kpcezi0"
+            >
+              [Mask] [Credit card numbers] from [$message]
+            </div>
+          </TextOverflow>
+        </li>
+      </ListItem>
+      <ListItem
+        key="1"
+      >
+        <li
+          className="css-1kjgas1-ListItem e1itmygm1"
+        >
+          <TextOverflow>
+            <div
+              className="css-bsbdc4-TextOverflow e1kpcezi0"
+            >
+              [Replace] [Password fields]  with [Scrubbed] from [password]
+            </div>
+          </TextOverflow>
+        </li>
+      </ListItem>
+    </ul>
+  </List>
+</ForwardRef(RulesList)>
+`;
