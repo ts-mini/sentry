@@ -1,9 +1,18 @@
 import React from 'react';
+import sortBy from 'lodash/sortBy';
 
 import {mountWithTheme} from 'sentry-test/enzyme';
 
 import DataScrubbing from 'app/views/settings/components/dataScrubbing';
-import {ProjectId} from 'app/views/settings/components/dataScrubbing/types';
+import {
+  ProjectId,
+  MethodType,
+  RuleType,
+} from 'app/views/settings/components/dataScrubbing/types';
+import {
+  getMethodLabel,
+  getRuleLabel,
+} from 'app/views/settings/components/dataScrubbing/utils';
 import {addSuccessMessage} from 'app/actionCreators/indicator';
 
 import {convertedRules, stringRelayPiiConfig, relayPiiConfig} from './utils';
@@ -222,6 +231,134 @@ describe('Data Scrubbing', () => {
       wrapper.update();
       expect(wrapper.state().rules).toHaveLength(1);
       expect(addSuccessMessage).toHaveBeenCalled();
+    });
+
+    it('Open Add Rule Modal', () => {
+      const wrapper = renderComponent({
+        disabled: false,
+        projectId,
+        endpoint,
+      });
+
+      const addbutton = wrapper
+        .find('PanelAction')
+        .find('[aria-label="Add Rule"]')
+        .hostNodes();
+
+      addbutton.simulate('click');
+      expect(wrapper.state().showAddRuleModal).toEqual(true);
+
+      // Modal
+      const addRuleModal = wrapper.find('[data-test-id="add-rule-modal"]').hostNodes();
+      expect(addRuleModal).toHaveLength(1);
+
+      expect(addRuleModal.find('.modal-header >*:last-child').text()).toEqual(
+        'Add an advanced data scrubbing rule'
+      );
+
+      // Method Field
+      const methodField = addRuleModal.find('SelectField[name="method"]');
+      expect(methodField.exists()).toBe(true);
+      const methodFieldProps = methodField.props();
+      expect(methodFieldProps.value).toEqual(MethodType.MASK);
+
+      const methodFieldOptions = sortBy(Object.values(MethodType)).map(value => ({
+        ...getMethodLabel(value),
+        value,
+      }));
+      expect(methodFieldProps.options).toEqual(methodFieldOptions);
+
+      // Type Field
+      const typeField = addRuleModal.find('SelectField[name="type"]');
+      expect(typeField.exists()).toBe(true);
+      const typeFieldProps = typeField.props();
+      expect(typeFieldProps.value).toEqual(RuleType.CREDITCARD);
+
+      const typeFieldOptions = sortBy(Object.values(RuleType)).map(value => ({
+        label: getRuleLabel(value),
+        value,
+      }));
+      expect(typeFieldProps.options).toEqual(typeFieldOptions);
+
+      // Source Field
+      const sourceField = addRuleModal.find('StyledInput[name="source"]');
+      expect(sourceField.exists()).toBe(true);
+
+      // Close Dialog
+      const cancelButton = addRuleModal.find('[aria-label="Cancel"]').hostNodes();
+      expect(cancelButton.exists()).toBe(true);
+      cancelButton.simulate('click');
+
+      expect(wrapper.state().showAddRuleModal).toEqual(false);
+    });
+
+    it.only('Open Edit Rule Modal', () => {
+      const wrapper = renderComponent({
+        disabled: false,
+        projectId,
+        endpoint,
+      });
+
+      const editButton = wrapper
+        .find('PanelBody')
+        .find('[aria-label="Edit Rule"]')
+        .hostNodes();
+
+      editButton.at(0).simulate('click');
+
+      // Modal
+      const editRuleModal = wrapper.find('[data-test-id="edit-rule-modal"]').hostNodes();
+      expect(editRuleModal).toHaveLength(1);
+
+      expect(editRuleModal.find('.modal-header >*:last-child').text()).toEqual(
+        'Edit an advanced data scrubbing rule'
+      );
+
+      // Method Field
+      const methodField = editRuleModal.find('SelectField[name="method"]');
+      expect(methodField.exists()).toBe(true);
+      const methodFieldProps = methodField.props();
+      expect(methodFieldProps.value).toEqual(MethodType.REPLACE);
+
+      const methodFieldOptions = sortBy(Object.values(MethodType)).map(value => ({
+        ...getMethodLabel(value),
+        value,
+      }));
+      expect(methodFieldProps.options).toEqual(methodFieldOptions);
+
+      // Placeholder Field
+      const placeholderField = editRuleModal.find('Input[name="placeholder"]');
+      expect(placeholderField.exists()).toBe(true);
+      expect(placeholderField.props().value).toEqual(
+        relayPiiConfig.rules[0].redaction.text
+      );
+
+      // Type Field
+      const typeField = editRuleModal.find('SelectField[name="type"]');
+      expect(typeField.exists()).toBe(true);
+      const typeFieldProps = typeField.props();
+      expect(typeFieldProps.value).toEqual(RuleType.PASSWORD);
+
+      const typeFieldOptions = sortBy(Object.values(RuleType)).map(value => ({
+        label: getRuleLabel(value),
+        value,
+      }));
+      expect(typeFieldProps.options).toEqual(typeFieldOptions);
+
+      // Source Field
+      const sourceField = editRuleModal.find('StyledInput[name="source"]');
+      expect(sourceField.exists()).toBe(true);
+
+      expect(sourceField.props().value).toEqual(
+        Object.keys(relayPiiConfig.applications)[0]
+      );
+
+      // Close Dialog
+      const cancelButton = editRuleModal.find('[aria-label="Cancel"]').hostNodes();
+      expect(cancelButton.exists()).toBe(true);
+      cancelButton.simulate('click');
+
+      expect(wrapper.find('[data-test-id="edit-rule-modal"]')).toHaveLength(0);
     });
   });
 });

@@ -93,7 +93,7 @@ class ProjectDataPrivacyContent extends AsyncView<Props> {
           relayPiiConfig={relayPiiConfig}
           disabled={!access.has('project:write')}
           organization={organization}
-          projectSlug={project.id}
+          projectId={project.id}
           onSubmitSuccess={this.handleUpdateProject}
         />
       </React.Fragment>
