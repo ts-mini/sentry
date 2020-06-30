@@ -3,31 +3,12 @@ import React from 'react';
 import {mountWithTheme} from 'sentry-test/enzyme';
 
 import DataScrubbing from 'app/views/settings/components/dataScrubbing';
-import {ProjectSlug} from 'app/views/settings/components/dataScrubbing/types';
+import {ProjectId} from 'app/views/settings/components/dataScrubbing/types';
 import {addSuccessMessage} from 'app/actionCreators/indicator';
 
+import {convertedRules, stringRelayPiiConfig, relayPiiConfig} from './utils';
+
 jest.mock('app/actionCreators/indicator');
-
-const relayPiiConfig = {
-  rules: {
-    '0': {type: 'password', redaction: {method: 'replace', text: 'Scrubbed'}},
-    '1': {type: 'creditcard', redaction: {method: 'mask'}},
-  },
-  applications: {password: ['0'], $message: ['1']},
-};
-
-const stringRelayPiiConfig = JSON.stringify(relayPiiConfig);
-
-const rules = [
-  {
-    id: 0,
-    method: 'replace',
-    placeholder: 'Scrubbed',
-    source: 'password',
-    type: 'password',
-  },
-  {id: 1, method: 'mask', source: '$message', type: 'creditcard'},
-];
 
 const organizationSlug = 'sentry';
 const handleUpdateOrganization = jest.fn();
@@ -42,18 +23,18 @@ function getOrganization(piiConfig?: string) {
 
 function renderComponent({
   disabled,
-  projectSlug,
+  projectId,
   endpoint,
   ...props
-}: Partial<Omit<DataScrubbing<ProjectSlug>['props'], 'endpoint'>> &
-  Pick<DataScrubbing<ProjectSlug>['props'], 'endpoint'>) {
+}: Partial<Omit<DataScrubbing<ProjectId>['props'], 'endpoint'>> &
+  Pick<DataScrubbing<ProjectId>['props'], 'endpoint'>) {
   const organization = props.organization ?? getOrganization();
-  if (projectSlug) {
+  if (projectId) {
     return mountWithTheme(
       <DataScrubbing
         additionalContext={additionalContext}
         endpoint={endpoint}
-        projectSlug={projectSlug}
+        projectId={projectId}
         relayPiiConfig={stringRelayPiiConfig}
         disabled={disabled}
         organization={organization}
@@ -81,7 +62,7 @@ describe('Data Scrubbing', () => {
       const wrapper = renderComponent({disabled: false, endpoint});
 
       //State
-      expect(wrapper.state().rules).toEqual(rules);
+      expect(wrapper.state().rules).toEqual(convertedRules);
 
       // PanelHeader
       expect(wrapper.find('PanelHeader').text()).toEqual('Advanced Data Scrubbing');
@@ -113,8 +94,6 @@ describe('Data Scrubbing', () => {
       expect(actionButtons.at(0).text()).toEqual('Read the docs');
       expect(actionButtons.at(1).text()).toEqual('Add Rule');
       expect(actionButtons.at(1).prop('disabled')).toEqual(false);
-
-      expect(wrapper).toMatchSnapshot();
     });
 
     it('render disabled', () => {
@@ -134,18 +113,18 @@ describe('Data Scrubbing', () => {
   });
 
   describe('Project level', () => {
-    const projectSlug = 'foo';
-    const endpoint = `/projects/${organizationSlug}/${projectSlug}/`;
+    const projectId = 'foo';
+    const endpoint = `/projects/${organizationSlug}/${projectId}/`;
 
     it('default render', () => {
       const wrapper = renderComponent({
         disabled: false,
-        projectSlug,
+        projectId,
         endpoint,
       });
 
       //State
-      expect(wrapper.state().rules).toEqual(rules);
+      expect(wrapper.state().rules).toEqual(convertedRules);
 
       // PanelHeader
       expect(wrapper.find('PanelHeader').text()).toEqual('Advanced Data Scrubbing');
@@ -180,8 +159,6 @@ describe('Data Scrubbing', () => {
       expect(actionButtons.at(0).text()).toEqual('Read the docs');
       expect(actionButtons.at(1).text()).toEqual('Add Rule');
       expect(actionButtons.at(1).prop('disabled')).toEqual(false);
-
-      expect(wrapper).toMatchSnapshot();
     });
 
     it('render disabled', () => {
@@ -203,7 +180,7 @@ describe('Data Scrubbing', () => {
       const wrapper = renderComponent({
         disabled: false,
         organization: getOrganization(stringRelayPiiConfig),
-        projectSlug,
+        projectId,
         endpoint,
       });
 
@@ -228,7 +205,7 @@ describe('Data Scrubbing', () => {
 
       const wrapper = renderComponent({
         disabled: false,
-        projectSlug,
+        projectId,
         endpoint,
       });
 

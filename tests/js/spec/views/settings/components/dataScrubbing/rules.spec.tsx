@@ -3,28 +3,10 @@ import React from 'react';
 import {mountWithTheme} from 'sentry-test/enzyme';
 
 import Rules from 'app/views/settings/components/dataScrubbing/rulesList';
-import {
-  Rule,
-  RuleType,
-  MethodType,
-} from 'app/views/settings/components/dataScrubbing/types';
 
-const rules: Array<Rule> = [
-  {
-    id: 0,
-    method: MethodType.MASK,
-    type: RuleType.CREDITCARD,
-    source: '$message',
-  },
-  {
-    id: 1,
-    method: MethodType.REPLACE,
-    placeholder: 'Scrubbed',
-    type: RuleType.PASSWORD,
-    source: 'password',
-  },
-];
+import {convertedRules} from './utils';
 
+const rules = convertedRules;
 const handleShowEditRule = jest.fn();
 const handleDelete = jest.fn();
 
@@ -32,16 +14,15 @@ describe('Rules', () => {
   it('default render', () => {
     const wrapper = mountWithTheme(<Rules rules={rules} />);
     expect(wrapper.find('ListItem')).toHaveLength(2);
-    expect(wrapper).toMatchSnapshot();
   });
 
   it('render correct description', () => {
     const wrapper = mountWithTheme(<Rules rules={rules} />);
     const listItems = wrapper.find('ListItem');
-    expect(listItems.at(0).text()).toEqual(
+    expect(listItems.at(1).text()).toEqual(
       '[Mask] [Credit card numbers] from [$message]'
     );
-    expect(listItems.at(1).text()).toEqual(
+    expect(listItems.at(0).text()).toEqual(
       '[Replace] [Password fields]  with [Scrubbed] from [password]'
     );
   });
