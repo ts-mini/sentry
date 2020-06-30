@@ -292,7 +292,7 @@ describe('Data Scrubbing', () => {
       expect(wrapper.state().showAddRuleModal).toEqual(false);
     });
 
-    it.only('Open Edit Rule Modal', () => {
+    it('Open Edit Rule Modal', () => {
       const wrapper = renderComponent({
         disabled: false,
         projectId,
