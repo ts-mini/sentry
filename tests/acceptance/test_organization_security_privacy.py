@@ -1,5 +1,9 @@
 from __future__ import absolute_import
 
+import time
+from django.core.urlresolvers import reverse
+from sentry.utils import json
+
 from sentry.testutils import AcceptanceTestCase
 
 
@@ -60,7 +64,7 @@ class OrganizationSecurityAndPrivacyTest(AcceptanceTestCase):
             self.browser.wait_until_test_id("toast-error")
             self.load_organization_helper("setting 2fa without 2fa enabled")
 
-    def test_renders_advanced_data_scrubbing(self):
+    def test_renders_advanced_data_scrubbing_without_rule(self):
         with self.feature("organizations:datascrubbers-v2"):
             user_owner = self.create_user("owner@example.com")
             organization = self.create_organization(name="Example", owner=user_owner)
@@ -68,5 +72,41 @@ class OrganizationSecurityAndPrivacyTest(AcceptanceTestCase):
             path = "/settings/{}/security-and-privacy/".format(organization.slug)
 
             self.browser.get(path)
+            self.browser.wait_until_not(".loading-indicator")
             assert self.browser.element_exists('[data-test-id="advanced-data-scrubbing"]')
-            self.load_organization_helper("advanced-data-scrubbing")
+
+            self.load_organization_helper("advanced-data-scrubbing-without-rule")
+
+    def test_renders_advanced_data_scrubbing_with_rules(self):
+        with self.feature("organizations:datascrubbers-v2"):
+            user_owner = self.create_user("owner@example.com")
+            organization = self.create_organization(name="Example", owner=user_owner)
+            relayPiiConfig = json.dumps({
+                'rules': {
+                    '0': {'type': 'password', 'redaction': {'method': 'replace', 'text': 'Scrubbed'}},
+                    '1': {'type': 'creditcard', 'redaction': {'method': 'mask'}},
+                },
+                'applications': {'password': ['0'], '$message': ['1']},
+            })
+            organization.update_option("sentry:relay_pii_config", relayPiiConfig)
+            self.login_as(user_owner)
+            path = "/settings/{}/security-and-privacy/".format(organization.slug)
+
+            self.browser.get(path)
+            self.browser.wait_until_not(".loading-indicator")
+            assert self.browser.element_exists('[data-test-id="advanced-data-scrubbing"]')
+            assert self.browser.element_exists('[data-test-id="advanced-data-scrubbing-rules"]')
+            self.load_organization_helper("advanced-data-scrubbing-with-rules")
+
+    def test_renders_advanced_data_scrubbing_add_rule_modal(self):
+        with self.feature("organizations:datascrubbers-v2"):
+            user_owner = self.create_user("owner@example.com")
+            organization = self.create_organization(name="Example", owner=user_owner)
+            self.login_as(user_owner)
+            path = "/settings/{}/security-and-privacy/".format(organization.slug)
+
+            self.browser.get(path)
+            self.browser.wait_until_not(".loading-indicator")
+            assert self.browser.element_exists('[data-test-id="advanced-data-scrubbing"]')
+            self.browser.click_when_visible("[aria-label='Add Rule']")
+            self.load_organization_helper("advanced-data-scrubbing-add-rule-modal")
