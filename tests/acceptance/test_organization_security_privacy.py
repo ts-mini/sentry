@@ -59,3 +59,14 @@ class OrganizationSecurityAndPrivacyTest(AcceptanceTestCase):
             self.browser.wait_until_not(".modal")
             self.browser.wait_until_test_id("toast-error")
             self.load_organization_helper("setting 2fa without 2fa enabled")
+
+    def test_renders_advanced_data_scrubbing(self):
+        with self.feature("organizations:datascrubbers-v2"):
+            user_owner = self.create_user("owner@example.com")
+            organization = self.create_organization(name="Example", owner=user_owner)
+            self.login_as(user_owner)
+            path = "/settings/{}/security-and-privacy/".format(organization.slug)
+
+            self.browser.get(path)
+            assert self.browser.element_exists('[data-test-id="advanced-data-scrubbing"]')
+            self.load_organization_helper("advanced-data-scrubbing")

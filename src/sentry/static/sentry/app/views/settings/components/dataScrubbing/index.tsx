@@ -272,7 +272,7 @@ class DataScrubbing<T extends ProjectId = undefined> extends React.Component<
 
     return (
       <React.Fragment>
-        <Panel>
+        <Panel data-test-id="advanced-data-scrubbing">
           <PanelHeader>
             <div>{t('Advanced Data Scrubbing')}</div>
           </PanelHeader>
